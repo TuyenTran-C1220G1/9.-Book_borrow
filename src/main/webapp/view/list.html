@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Order</title>
+</head>
+<style>
+    .td{
+        text-align: center;
+    }
+    table {
+        width: 100%;
+    }
+</style>
+<body>
+<h1 th:utext="${'view count: ' + counter.getCount()}"></h1>
+<a href="/order/create">Create Order</a> <br>
+<a href="/book">List Province</a>
+<table border="1" class="td">
+    <tr>
+        <td>STT</td>
+        <td>Book</td>
+        <td>OrderCode</td>
+        <td>BorrowDate</td>
+    </tr>
+    <tr th:each="o:${listOrder}">
+        <td th:utext="${o.id}"></td>
+        <td th:utext="${o.book.name}"></td>
+        <td th:utext="${o.borrowCode}"></td>
+        <td th:utext="${o.borrowDate}"></td>
+    </tr>
+</table>
+</body>
+</html>

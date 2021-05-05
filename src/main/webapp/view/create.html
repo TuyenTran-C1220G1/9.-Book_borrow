@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add BorrowOrder</title>
+</head>
+<body>
+<form action="/order/create" method="post" th:object="${order}">
+    <label>OrderCode</label>
+    <input type="text"  th:field="${order.borrowCode}">
+    <label>OrderDate</label>
+    <input type="date"  th:field="${order.borrowDate}">
+    <select name="book">
+        <option th:each="b:${listBook}" th:value="${b.id}" th:utext="${b.name}"></option>
+    </select>
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>
